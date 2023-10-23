@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvvpe5nlgj7qh"]
+
+[ext_resource type="Texture2D" uid="uid://cn6gh0ucl6adt" path="res://icon.svg" id="1_5rtrp"]
+[ext_resource type="Script" path="res://block.gd" id="1_j87vw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5kjjb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2n8os"]
+size = Vector2(128, 128)
+
+[node name="Block" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_5kjjb")
+script = ExtResource("1_j87vw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2n8os")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5rtrp")

@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn47xknifwppj"]
+
+[ext_resource type="Script" path="res://example_scene.gd" id="1_df3x5"]
+[ext_resource type="PackedScene" uid="uid://bbqay85du5c8i" path="res://Actors/player.tscn" id="2_sxcx0"]
+[ext_resource type="PackedScene" uid="uid://dvvpe5nlgj7qh" path="res://block.tscn" id="3_mmkqk"]
+[ext_resource type="PhysicsMaterial" uid="uid://diqh07kqb4ped" path="res://Resources/Physics/ice.tres" id="4_2x7ee"]
+
+[node name="ExampleScene" type="Node2D"]
+script = ExtResource("1_df3x5")
+
+[node name="Player" parent="." instance=ExtResource("2_sxcx0")]
+
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="Block1" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0.478431, 0.313726, 0, 1)
+position = Vector2(0, 320)
+
+[node name="Block7" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0.478431, 0.313726, 0, 1)
+position = Vector2(-128, 320)
+
+[node name="Block8" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0.478431, 0.313726, 0, 1)
+position = Vector2(-256, 320)
+
+[node name="Block9" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0.478431, 0.313726, 0, 1)
+position = Vector2(-384, 320)
+
+[node name="Block10" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0.478431, 0.313726, 0, 1)
+position = Vector2(-512, 320)
+
+[node name="Block11" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0.478431, 0.313726, 0, 1)
+position = Vector2(-640, 320)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0.478431, 0.313726, 0, 1)
+position = Vector2(128, 320)
+
+[node name="Block3" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0.478431, 0.313726, 0, 1)
+position = Vector2(256, 320)
+
+[node name="Block4" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(384, 320)
+physics_material_override = ExtResource("4_2x7ee")
+terrain_type = 1
+
+[node name="Block5" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(512, 320)
+physics_material_override = ExtResource("4_2x7ee")
+terrain_type = 1
+
+[node name="Block6" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(640, 320)
+physics_material_override = ExtResource("4_2x7ee")
+terrain_type = 1
+
+[node name="GUI" type="CanvasLayer" parent="."]
