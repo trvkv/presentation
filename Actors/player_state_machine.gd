@@ -8,6 +8,16 @@ class PlayerStateIdle extends StateMachine.State:
 	func enter() -> void:
 		pass
 
+	func tick(delta) -> void:
+		var player: Player = Global.player
+		player.velocity = GlobalPhysics.apply_gravity(player.velocity, delta)
+		var collided: bool = player.move_and_slide()
+
+		if not collided:
+			return
+
+		player.velocity = player.count_friction(delta)
+
 class PlayerStateRun extends StateMachine.State:
 
 	func _init() -> void:
@@ -39,11 +49,11 @@ func _ready():
 	player_node = get_node_or_null(player_node_path)
 	Util.crash_if_false(is_instance_valid(player_node), "Player node required")
 
-	state_machine = StateMachine.new()
-	state_machine.states = [
+	state_machine = StateMachine.new("Idle", [
 		PlayerStateIdle.new(),
 		PlayerStateRun.new(),
 		PlayerStateFalling.new(),
 		PlayerStateDashing.new()
-	]
-	state_machine.active_state = state_machine.get_state_by_name("Run")
+	])
+
+	add_child(state_machine)

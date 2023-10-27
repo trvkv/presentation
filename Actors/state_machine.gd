@@ -60,8 +60,9 @@ var states: Array[State] = []:
 
 var active_state: State = null
 
-func _init(default_state: State = null) -> void:
-	active_state = default_state
+func _init(default_state: String = "", states_list: Array[State] = []) -> void:
+	states = states_list
+	active_state = get_state_by_name(default_state) if default_state != "" else null
 
 func _ready():
 	if active_state == null:
@@ -97,6 +98,8 @@ func add_state(state: State) -> void:
 	states.append(state)
 
 func get_state_by_name(state_name: String) -> State:
-	return states.filter(
+	var results: Array[State] = states.filter(
 		func(state): return state_name == state.state_name
-	)[0]
+	)
+	assert(results.size() > 0, "State '" + state_name + "' not found in machine states list")
+	return results[0]

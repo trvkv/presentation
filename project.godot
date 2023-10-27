@@ -19,7 +19,3 @@ config/icon="res://icon.svg"
 
 Types="*res://Globals/types.gd"
 Global="*res://Globals/global.gd"
-
-[physics]
-
-2d/default_gravity=1980.0

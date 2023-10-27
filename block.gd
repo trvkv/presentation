@@ -4,12 +4,9 @@ extends StaticBody2D
 @export_category("Terrain")
 @export var terrain_type: Types.TerrainTypes = Types.TerrainTypes.DIRT:
 	get = get_terrain_type, set = set_terrain_type
+@export var friction_strength: float = GlobalPhysics.default_friction_strength
 
 @onready var collision: Shape2D = $CollisionShape2D.shape
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
 func get_terrain_type() -> Types.TerrainTypes:
 	return terrain_type
