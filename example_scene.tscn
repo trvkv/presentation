@@ -63,3 +63,22 @@ physics_material_override = ExtResource("4_2x7ee")
 terrain_type = 1
 
 [node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="GUI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="hb_state" type="HBoxContainer" parent="GUI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="label_state" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_state"]
+layout_mode = 2
+text = "Player state:"
+horizontal_alignment = 2
+
+[node name="label_value" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_state"]
+layout_mode = 2

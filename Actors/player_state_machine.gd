@@ -5,10 +5,17 @@ class PlayerStateIdle extends StateMachine.State:
 	func _init() -> void:
 		super("Idle")
 
-	func enter() -> void:
-		pass
+	func get_transition() -> String:
+		var player: Player = Global.player
 
-	func tick(delta) -> void:
+		if not player.is_on_floor():
+			return "Falling"
+		else:
+			if player.motion_direction.length() > 0.0:
+				return "Run"
+		return ""
+
+	func physics_tick(delta) -> void:
 		var player: Player = Global.player
 		player.velocity = GlobalPhysics.apply_gravity(player.velocity, delta)
 		var collided: bool = player.move_and_slide()
@@ -23,13 +30,45 @@ class PlayerStateRun extends StateMachine.State:
 	func _init() -> void:
 		super("Run")
 
-	func enter() -> void:
-		pass
+	func get_transition() -> String:
+		var player: Player = Global.player
+		if not player.is_on_floor():
+			return "Falling"
+		if player.motion_direction.length() == 0.0:
+			return "Idle"
+		return ""
+
+	func physics_tick(delta) -> void:
+		var player: Player = Global.player
+
+		var v: Vector2 = player.velocity
+		v = GlobalPhysics.apply_gravity(v, delta)
+		v = v + (player.motion_direction * player.default_move_speed)
+		v = v.limit_length(player.max_motion_velocity)
+		player.velocity = v
+
+		player.move_and_slide()
+		player.velocity = player.count_friction(delta)
 
 class PlayerStateFalling extends StateMachine.State:
 
 	func _init() -> void:
 		super("Falling")
+
+	func get_transition() -> String:
+		var player: Player = Global.player
+		if player.velocity.y == 0.0:
+			if player.motion_direction.length() == 0.0:
+				return "Idle"
+			else:
+				return "Run"
+		return ""
+
+	func physics_tick(delta):
+		var player: Player = Global.player
+		player.velocity = player.velocity * Vector2(0.98, 1.0)
+		player.velocity = GlobalPhysics.apply_gravity(player.velocity, delta)
+		player.move_and_slide()
 
 class PlayerStateDashing extends StateMachine.State:
 
@@ -44,6 +83,11 @@ class PlayerStateDashing extends StateMachine.State:
 var player_node: Player
 
 var state_machine: StateMachine
+var active_state: StateMachine.State:
+	get:
+		return state_machine.active_state
+	set(value):
+		active_state = value
 
 func _ready():
 	player_node = get_node_or_null(player_node_path)

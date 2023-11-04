@@ -26,10 +26,10 @@ class State:
 	func exit() -> void:
 		pass
 
-	func tick(_delta) -> void:
+	func tick(_delta: float) -> void:
 		pass
 
-	func physics_tick(_delta) -> void:
+	func physics_tick(_delta: float) -> void:
 		pass
 
 	func input() -> void:
@@ -87,7 +87,7 @@ func _physics_process(delta):
 	if active_state == null:
 		return
 
-	active_state.tick(delta)
+	active_state.physics_tick(delta)
 
 func add_state(state: State) -> void:
 	# sanitize the added state
