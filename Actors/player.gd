@@ -9,8 +9,11 @@ const JUMP_VELOCITY = 1000.0
 
 func _ready():
 	Global.player = self
+	motion_direction = Vector2(-1.0, 0.0)
+	last_motion_direction = Vector2(1.0, 0.0)
 
 func _physics_process(_delta):
+
 	motion_direction = Vector2(
 		Input.get_axis("ui_left", "ui_right"),
 #		Input.get_axis("ui_up", "ui_down")

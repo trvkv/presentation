@@ -16,8 +16,10 @@ static func get_gravity() -> Vector2:
 static func apply_gravity(velocity: Vector2, delta: float) -> Vector2:
 	return velocity + (get_gravity() * delta)
 
-static func apply_friction(velocity: Vector2, mass: float, coefficient: float, delta: float) -> Vector2:
-	var direction: float = -sign(velocity.x)
-	var velocity_x: float = abs(velocity.x)
+static func count_friction(velocity: Vector2, mass: float, coefficient: float, delta: float) -> Vector2:
 	var friction: float = coefficient * mass * delta
-	return velocity + (Vector2(min(friction, velocity_x), velocity.y) * direction)
+	var direction: float = -sign(velocity.x)
+	return Vector2(min(friction, abs(velocity.x)), velocity.y) * direction
+
+static func apply_friction(velocity: Vector2, mass: float, coefficient: float, delta: float) -> Vector2:
+	return velocity + count_friction(velocity, mass, coefficient, delta)

@@ -2,13 +2,25 @@ extends CharacterBody2D
 
 class_name Actor
 
-@export var default_move_speed: float = 800.0
+@export var acceleration: float = 150.0
+@export var max_acceleration_buildup: float = 500.0
+@export var acceleration_damp: float = 30.0
 @export var max_motion_velocity: float = 500.0
 @export var mass: float = 2000.0
 
-var motion_direction: Vector2
+# # # # #
 
-func count_friction(delta) -> Vector2:
+class CollisionData:
+	var friction_coefficient: float
+
+# # # # #
+
+var motion_direction: Vector2
+var last_motion_direction: Vector2
+var current_acceleration: float
+var friction: Vector2
+
+func get_collision_data() -> CollisionData:
 	var coefficient: float = 0.0
 
 	var collisions: int = get_slide_collision_count()
@@ -19,4 +31,7 @@ func count_friction(delta) -> Vector2:
 
 	coefficient /= max(collisions, 1)
 
-	return GlobalPhysics.apply_friction(velocity, mass, coefficient, delta)
+	var collision_data: CollisionData = CollisionData.new()
+	collision_data.friction_coefficient = coefficient
+
+	return collision_data
