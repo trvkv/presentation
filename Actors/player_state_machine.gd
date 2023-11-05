@@ -18,11 +18,7 @@ class PlayerStateIdle extends StateMachine.State:
 	func physics_tick(delta) -> void:
 		var player: Player = Global.player
 		player.velocity = GlobalPhysics.apply_gravity(player.velocity, delta)
-		var collided: bool = player.move_and_slide()
-
-		if not collided:
-			return
-
+		player.move_and_slide()
 		player.velocity = player.count_friction(delta)
 
 class PlayerStateRun extends StateMachine.State:
@@ -46,7 +42,6 @@ class PlayerStateRun extends StateMachine.State:
 		v = v + (player.motion_direction * player.default_move_speed)
 		v = v.limit_length(player.max_motion_velocity)
 		player.velocity = v
-
 		player.move_and_slide()
 		player.velocity = player.count_friction(delta)
 

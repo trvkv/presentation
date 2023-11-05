@@ -49,18 +49,56 @@ modulate = Color(0, 0, 1, 1)
 position = Vector2(384, 320)
 physics_material_override = ExtResource("4_2x7ee")
 terrain_type = 1
+friction_coefficient = 0.28
 
 [node name="Block5" parent="Blocks" instance=ExtResource("3_mmkqk")]
 modulate = Color(0, 0, 1, 1)
 position = Vector2(512, 320)
 physics_material_override = ExtResource("4_2x7ee")
 terrain_type = 1
+friction_coefficient = 0.28
 
 [node name="Block6" parent="Blocks" instance=ExtResource("3_mmkqk")]
 modulate = Color(0, 0, 1, 1)
 position = Vector2(640, 320)
 physics_material_override = ExtResource("4_2x7ee")
 terrain_type = 1
+friction_coefficient = 0.28
+
+[node name="Block12" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(768, 320)
+physics_material_override = ExtResource("4_2x7ee")
+terrain_type = 1
+friction_coefficient = 0.28
+
+[node name="Block13" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(896, 320)
+physics_material_override = ExtResource("4_2x7ee")
+terrain_type = 1
+friction_coefficient = 0.28
+
+[node name="Block14" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(1024, 320)
+physics_material_override = ExtResource("4_2x7ee")
+terrain_type = 1
+friction_coefficient = 0.28
+
+[node name="Block15" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(1152, 320)
+physics_material_override = ExtResource("4_2x7ee")
+terrain_type = 1
+friction_coefficient = 0.28
+
+[node name="Block16" parent="Blocks" instance=ExtResource("3_mmkqk")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(1280, 320)
+physics_material_override = ExtResource("4_2x7ee")
+terrain_type = 1
+friction_coefficient = 0.28
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -75,10 +113,39 @@ alignment = 1
 [node name="hb_state" type="HBoxContainer" parent="GUI/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="label_state" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_state"]
+[node name="label_name" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_state"]
 layout_mode = 2
 text = "Player state:"
 horizontal_alignment = 2
 
 [node name="label_value" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_state"]
+layout_mode = 2
+
+[node name="hb_velocity" type="HBoxContainer" parent="GUI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="label_name" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_velocity"]
+layout_mode = 2
+text = "Velocity:"
+horizontal_alignment = 2
+
+[node name="label_value" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_velocity"]
+layout_mode = 2
+
+[node name="hb_direction" type="HBoxContainer" parent="GUI/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="label_name" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_direction"]
+layout_mode = 2
+text = "Motion direction:"
+horizontal_alignment = 2
+
+[node name="VSeparator" type="VSeparator" parent="GUI/PanelContainer/VBoxContainer/hb_direction/label_name"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 40.0
+theme_override_constants/separation = 5
+
+[node name="label_value" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_direction"]
 layout_mode = 2
