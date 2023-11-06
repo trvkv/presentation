@@ -1,19 +1,23 @@
 extends Node
 
+enum STATES { INVALID = StateMachine.INVALID, IDLE, RUNNING, FALLING, JUMPING, DASHING }
+
 class PlayerStateIdle extends StateMachine.State:
 
 	func _init() -> void:
-		super("Idle")
+		super(STATES.IDLE, "Idle")
 
-	func get_transition() -> String:
+	func get_transition() -> int:
 		var player: Player = Global.player
 
 		if not player.is_on_floor():
-			return "Falling"
+			return STATES.FALLING
 		else:
+			if player.is_jumping:
+				return STATES.JUMPING
 			if player.motion_direction.length() > 0.0:
-				return "Run"
-		return ""
+				return STATES.RUNNING
+		return STATES.INVALID
 
 	func physics_tick(delta) -> void:
 		var player: Player = Global.player
@@ -35,18 +39,27 @@ class PlayerStateIdle extends StateMachine.State:
 
 		player.velocity += player.friction
 
-class PlayerStateRun extends StateMachine.State:
+	func input(event: InputEvent) -> void:
+		if event.is_action_type():
+			var player: Player = Global.player
+			player.handle_movement(event)
+			player.handle_jump(event)
+			player.get_viewport().set_input_as_handled()
+
+class PlayerStateRunning extends StateMachine.State:
 
 	func _init() -> void:
-		super("Run")
+		super(STATES.RUNNING, "Running")
 
-	func get_transition() -> String:
+	func get_transition() -> int:
 		var player: Player = Global.player
 		if not player.is_on_floor():
-			return "Falling"
+			return STATES.FALLING
+		if player.is_jumping:
+			return STATES.JUMPING
 		if player.motion_direction.length() == 0.0:
-			return "Idle"
-		return ""
+			return STATES.IDLE
+		return STATES.INVALID
 
 	func physics_tick(delta) -> void:
 		var player: Player = Global.player
@@ -54,10 +67,10 @@ class PlayerStateRun extends StateMachine.State:
 		var v: Vector2 = player.velocity
 		v = GlobalPhysics.apply_gravity(v, delta)
 
-		player.current_acceleration += max(player.acceleration - (player.acceleration + abs(player.friction.x)), 10.0)
+		player.current_acceleration += max(abs(player.friction.x), 10.0)
 		player.current_acceleration = min(player.current_acceleration, player.max_acceleration_buildup)
 
-		v = v + (player.motion_direction * player.current_acceleration)
+		v = v + (player.motion_direction.normalized() * player.current_acceleration)
 		v = v.limit_length(player.max_motion_velocity)
 
 		player.velocity = v
@@ -72,19 +85,26 @@ class PlayerStateRun extends StateMachine.State:
 		)
 		player.velocity += player.friction
 
+	func input(event: InputEvent) -> void:
+		if event.is_action_type():
+			var player: Player = Global.player
+			player.handle_movement(event)
+			player.handle_jump(event)
+			player.get_viewport().set_input_as_handled()
+
 class PlayerStateFalling extends StateMachine.State:
 
 	func _init() -> void:
-		super("Falling")
+		super(STATES.FALLING, "Falling")
 
-	func get_transition() -> String:
+	func get_transition() -> int:
 		var player: Player = Global.player
 		if player.velocity.y == 0.0:
 			if player.motion_direction.length() == 0.0:
-				return "Idle"
+				return STATES.IDLE
 			else:
-				return "Run"
-		return ""
+				return STATES.RUNNING
+		return STATES.INVALID
 
 	func physics_tick(delta):
 		var player: Player = Global.player
@@ -92,10 +112,15 @@ class PlayerStateFalling extends StateMachine.State:
 		player.velocity = GlobalPhysics.apply_gravity(player.velocity, delta)
 		player.move_and_slide()
 
+class PlayerStateJumping extends StateMachine.State:
+
+	func _init() -> void:
+		super(STATES.JUMPING, "Jumping")
+
 class PlayerStateDashing extends StateMachine.State:
 
 	func _init() -> void:
-		super("Dashing")
+		super(STATES.DASHING, "Dashing")
 
 #
 # main script part
@@ -115,11 +140,12 @@ func _ready():
 	player_node = get_node_or_null(player_node_path)
 	Util.crash_if_false(is_instance_valid(player_node), "Player node required")
 
-	state_machine = StateMachine.new("Idle", [
-		PlayerStateIdle.new(),
-		PlayerStateRun.new(),
-		PlayerStateFalling.new(),
-		PlayerStateDashing.new()
-	])
+	state_machine = StateMachine.new(STATES.IDLE, {
+		STATES.IDLE: PlayerStateIdle.new(),
+		STATES.RUNNING: PlayerStateRunning.new(),
+		STATES.FALLING: PlayerStateFalling.new(),
+		STATES.JUMPING: PlayerStateJumping.new(),
+		STATES.DASHING: PlayerStateDashing.new()
+	})
 
 	add_child(state_machine)

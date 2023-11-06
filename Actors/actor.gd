@@ -19,6 +19,7 @@ var motion_direction: Vector2
 var last_motion_direction: Vector2
 var current_acceleration: float
 var friction: Vector2
+var is_jumping: bool = false
 
 func get_collision_data() -> CollisionData:
 	var coefficient: float = 0.0

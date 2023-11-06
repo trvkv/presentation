@@ -9,18 +9,21 @@ const JUMP_VELOCITY = 1000.0
 
 func _ready():
 	Global.player = self
-	motion_direction = Vector2(-1.0, 0.0)
+	motion_direction = Vector2(0.0, 0.0)
 	last_motion_direction = Vector2(1.0, 0.0)
 
-func _physics_process(_delta):
+func handle_movement(event: InputEvent) -> void:
+	motion_direction.x = 0
+	if event.is_action("ui_left"):
+		motion_direction.x -= 1 if event.is_pressed() else 0
+	if event.is_action("ui_right"):
+		motion_direction.x += 1 if event.is_pressed() else 0
 
-	motion_direction = Vector2(
-		Input.get_axis("ui_left", "ui_right"),
-#		Input.get_axis("ui_up", "ui_down")
-		0.0 # movement available only on X axis
-	)
+func handle_jump(event: InputEvent) -> void:
+	if event.is_action("ui_select"):
+		is_jumping = event.is_pressed()
 
-func get_current_state() -> String:
+func get_current_state_name() -> String:
 	if state_machine.active_state:
-		return state_machine.active_state.get_name()
+		return state_machine.active_state.get_state_name()
 	return ""

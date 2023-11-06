@@ -8,7 +8,7 @@ extends Node2D
 func _physics_process(delta) -> void:
 	var player: Player = Global.player
 	if player:
-		label_state_value.set_text(player.get_current_state())
+		label_state_value.set_text(player.get_current_state_name())
 		label_velocity_value.set_text("X: {vx}, Y: {vy}".format({
 			"vx": "%0.2f" % (player.get_last_motion().x / delta),
 			"vy": "%0.2f" % player.velocity.y

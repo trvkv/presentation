@@ -6,19 +6,31 @@ class_name StateMachine
 # inner State class
 #
 
+enum {INVALID}
+
 class State:
 
+	var state_id: int:
+		get = get_id, set = set_id
+
 	var state_name: String:
-		get = get_name, set = set_name
+		get = get_state_name, set = set_state_name
 
-	func _init(name: String) -> void:
-		set_name(name)
+	func _init(id: int, state_name: String) -> void:
+		set_id(id)
+		set_state_name(state_name)
 
-	func set_name(state: String) -> void:
-		state_name = state
+	func set_state_name(state_name_: String) -> void:
+		state_name = state_name_
 
-	func get_name() -> String:
+	func get_state_name() -> String:
 		return state_name
+
+	func set_id(state: int) -> void:
+		state_id = state
+
+	func get_id() -> int:
+		return state_id
 
 	func enter() -> void:
 		pass
@@ -32,26 +44,26 @@ class State:
 	func physics_tick(_delta: float) -> void:
 		pass
 
-	func input() -> void:
+	func input(_event) -> void:
 		pass
 
-	func get_transition() -> String:
-		return String()
+	func get_transition() -> int:
+		return INVALID
 
 	func is_valid() -> bool:
-		return !state_name.is_empty()
+		return state_id != INVALID
 
 #
 # end of State class
 #
 
-var states: Array[State] = []:
+var states: Dictionary = {}:
 	set(incoming_states):
 		states = incoming_states
-		for incoming_state in states:
-			var array_size = states.filter(
+		for incoming_state in states.values():
+			var array_size = states.values().filter(
 				func(saved_state):
-					return saved_state.state_name == incoming_state.state_name
+					return saved_state.state_id == incoming_state.state_id
 			).size()
 			Util.crash_if_false(
 				array_size <= 1,
@@ -60,9 +72,9 @@ var states: Array[State] = []:
 
 var active_state: State = null
 
-func _init(default_state: String = "", states_list: Array[State] = []) -> void:
+func _init(default_state: int = INVALID, states_list: Dictionary = {}) -> void:
 	states = states_list
-	active_state = get_state_by_name(default_state) if default_state != "" else null
+	active_state = get_state_by_id(default_state) if default_state != INVALID else null
 
 func _ready():
 	if active_state == null:
@@ -73,9 +85,9 @@ func _process(delta):
 	if active_state == null:
 		return
 
-	var transition_state: String = active_state.get_transition()
-	if ! transition_state.is_empty():
-		var found_state: State = get_state_by_name(transition_state)
+	var transition_state: int = active_state.get_transition()
+	if transition_state != INVALID:
+		var found_state: State = get_state_by_id(transition_state)
 		if found_state.is_valid():
 			active_state.exit()
 			active_state = found_state
@@ -89,17 +101,20 @@ func _physics_process(delta):
 
 	active_state.physics_tick(delta)
 
+func _unhandled_input(event):
+	if active_state == null:
+		return
+
+	active_state.input(event)
+
 func add_state(state: State) -> void:
 	# sanitize the added state
 	Util.crash_if_false(
 		state not in states,
 		"Duplicated states in the state machine found"
 	)
-	states.append(state)
+	states[state.state_id] = state
 
-func get_state_by_name(state_name: String) -> State:
-	var results: Array[State] = states.filter(
-		func(state): return state_name == state.state_name
-	)
-	assert(results.size() > 0, "State '" + state_name + "' not found in machine states list")
-	return results[0]
+func get_state_by_id(state_id: int) -> State:
+	assert(states.has(state_id), "State {0} not present in state machine".format([state_id]))
+	return states[state_id]
