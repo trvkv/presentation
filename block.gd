@@ -10,8 +10,9 @@ extends StaticBody2D
 			return physics_material_override.friction
 		return 0.0
 	set(value):
+		friction_coefficient = value
 		if is_instance_valid(physics_material_override):
-			physics_material_override.friction
+			physics_material_override.friction = value
 
 @onready var collision: Shape2D = $CollisionShape2D.shape
 

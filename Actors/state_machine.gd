@@ -16,9 +16,9 @@ class State:
 	var state_name: String:
 		get = get_state_name, set = set_state_name
 
-	func _init(id: int, state_name: String) -> void:
+	func _init(id: int, state_name_: String) -> void:
 		set_id(id)
-		set_state_name(state_name)
+		set_state_name(state_name_)
 
 	func set_state_name(state_name_: String) -> void:
 		state_name = state_name_
