@@ -9,14 +9,12 @@ class PlayerStateIdle extends StateMachine.State:
 
 	func get_transition() -> int:
 		var player: Player = Global.player
-
 		if not player.is_on_floor():
 			return STATES.FALLING
-		else:
-			if player.is_jumping:
-				return STATES.JUMPING
-			if player.motion_direction.length() > 0.0:
-				return STATES.RUNNING
+		if player.is_jumping:
+			return STATES.JUMPING
+		if player.motion_direction.length() > 0.0:
+			return STATES.RUNNING
 		return STATES.INVALID
 
 	func physics_tick(delta) -> void:
@@ -63,7 +61,6 @@ class PlayerStateRunning extends StateMachine.State:
 
 	func physics_tick(delta) -> void:
 		var player: Player = Global.player
-
 		var v: Vector2 = player.velocity
 		v = GlobalPhysics.apply_gravity(v, delta)
 
@@ -108,14 +105,46 @@ class PlayerStateFalling extends StateMachine.State:
 
 	func physics_tick(delta):
 		var player: Player = Global.player
-		player.velocity = player.velocity * Vector2(0.98, 1.0)
+		player.velocity = player.velocity * Vector2(0.995, 1.0)
 		player.velocity = GlobalPhysics.apply_gravity(player.velocity, delta)
 		player.move_and_slide()
+
+	func input(event: InputEvent) -> void:
+		if event.is_action_type():
+			var player: Player = Global.player
+			player.handle_movement(event)
+			player.get_viewport().set_input_as_handled()
 
 class PlayerStateJumping extends StateMachine.State:
 
 	func _init() -> void:
 		super(STATES.JUMPING, "Jumping")
+
+	func get_transition() -> int:
+		var player: Player = Global.player
+		if player.is_jumping:
+			return STATES.INVALID
+		if player.is_on_floor():
+			if player.motion_direction.length() == 0:
+				return STATES.IDLE
+			return STATES.RUNNING
+		return STATES.FALLING
+
+	func enter() -> void:
+		var player: Player = Global.player
+		player.apply_jump()
+
+	func physics_tick(delta) -> void:
+		var player: Player = Global.player
+		player.velocity = GlobalPhysics.apply_gravity(player.velocity, delta)
+		player.move_and_slide()
+		player.is_jumping = false
+
+	func input(event: InputEvent) -> void:
+		if event.is_action_type():
+			var player: Player = Global.player
+			player.handle_movement(event)
+			player.get_viewport().set_input_as_handled()
 
 class PlayerStateDashing extends StateMachine.State:
 
