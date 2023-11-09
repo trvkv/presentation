@@ -26,9 +26,16 @@ func get_collision_data() -> CollisionData:
 
 	var collisions: int = get_slide_collision_count()
 	for i in range(collisions):
-		var collision = get_slide_collision(i)
-		# assume it's block for now
-		coefficient += collision.get_collider().friction_coefficient
+		var collider = get_slide_collision(i).get_collider()
+		if is_instance_valid(collider):
+			# rigid body
+			if collider.get("physics_material_override"):
+				coefficient += collider.physics_material_override.friction
+			# tile map
+			elif collider.get("tile_set"):
+				var rid: RID = get_slide_collision(i).get_collider_rid()
+				var layer: int = collider.get_layer_for_body_rid(rid)
+				coefficient += collider.tile_set.get_physics_layer_physics_material(layer).friction
 
 	coefficient /= max(collisions, 1)
 

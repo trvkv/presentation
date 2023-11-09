@@ -1,117 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn47xknifwppj"]
+[gd_scene load_steps=4 format=3 uid="uid://cn47xknifwppj"]
 
 [ext_resource type="Script" path="res://example_scene.gd" id="1_df3x5"]
 [ext_resource type="PackedScene" uid="uid://bbqay85du5c8i" path="res://Actors/player.tscn" id="2_sxcx0"]
-[ext_resource type="PackedScene" uid="uid://dvvpe5nlgj7qh" path="res://block.tscn" id="3_mmkqk"]
-[ext_resource type="PhysicsMaterial" uid="uid://diqh07kqb4ped" path="res://Resources/Physics/ice.tres" id="4_2x7ee"]
-[ext_resource type="PhysicsMaterial" uid="uid://citqo425b8w6m" path="res://Resources/Physics/dirt.tres" id="4_erpkh"]
+[ext_resource type="TileSet" uid="uid://7ucfl6wc38tw" path="res://Resources/Tiles/crayons.tres" id="6_w6yan"]
 
 [node name="ExampleScene" type="Node2D"]
 script = ExtResource("1_df3x5")
 
 [node name="Player" parent="." instance=ExtResource("2_sxcx0")]
-
-[node name="Blocks" type="Node2D" parent="."]
-
-[node name="Block1" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0.478431, 0.313726, 0, 1)
-position = Vector2(0, 320)
-
-[node name="Block7" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0.478431, 0.313726, 0, 1)
-position = Vector2(-128, 320)
-
-[node name="Block8" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0.478431, 0.313726, 0, 1)
-position = Vector2(-256, 320)
-
-[node name="Block9" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0.478431, 0.313726, 0, 1)
-position = Vector2(-384, 320)
-
-[node name="Block10" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0.478431, 0.313726, 0, 1)
-position = Vector2(-512, 320)
-
-[node name="Block11" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0.478431, 0.313726, 0, 1)
-position = Vector2(-640, 320)
-
-[node name="Block18" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0.478431, 0.313726, 0, 1)
-position = Vector2(-640, 192)
-physics_material_override = ExtResource("4_erpkh")
-
-[node name="Block2" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0.478431, 0.313726, 0, 1)
-position = Vector2(128, 320)
-
-[node name="Block3" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0.478431, 0.313726, 0, 1)
-position = Vector2(256, 320)
-
-[node name="Block4" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(384, 320)
-physics_material_override = ExtResource("4_2x7ee")
-terrain_type = 1
-friction_coefficient = 0.2
-
-[node name="Block5" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(512, 320)
-physics_material_override = ExtResource("4_2x7ee")
-terrain_type = 1
-friction_coefficient = 0.2
-
-[node name="Block6" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(640, 320)
-physics_material_override = ExtResource("4_2x7ee")
-terrain_type = 1
-friction_coefficient = 0.2
-
-[node name="Block12" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(768, 320)
-physics_material_override = ExtResource("4_2x7ee")
-terrain_type = 1
-friction_coefficient = 0.2
-
-[node name="Block13" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(896, 320)
-physics_material_override = ExtResource("4_2x7ee")
-terrain_type = 1
-friction_coefficient = 0.2
-
-[node name="Block14" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(1024, 320)
-physics_material_override = ExtResource("4_2x7ee")
-terrain_type = 1
-friction_coefficient = 0.2
-
-[node name="Block15" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(1152, 320)
-physics_material_override = ExtResource("4_2x7ee")
-terrain_type = 1
-friction_coefficient = 0.2
-
-[node name="Block16" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(1280, 320)
-physics_material_override = ExtResource("4_2x7ee")
-terrain_type = 1
-friction_coefficient = 0.2
-
-[node name="Block17" parent="Blocks" instance=ExtResource("3_mmkqk")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(1280, 192)
-physics_material_override = ExtResource("4_2x7ee")
-terrain_type = 1
-friction_coefficient = 0.2
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -178,3 +74,8 @@ theme_override_constants/separation = 5
 
 [node name="label_value" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_last_direction"]
 layout_mode = 2
+
+[node name="Map" type="TileMap" parent="."]
+tile_set = ExtResource("6_w6yan")
+format = 2
+layer_0/tile_data = PackedInt32Array(196607, 131072, 5, 131072, 131072, 5, 131073, 131072, 5, 131074, 131072, 5, 131075, 131072, 5, 131076, 131072, 5, 131077, 131072, 5, 131078, 131072, 5, 196606, 131072, 5, 196605, 131072, 5, 196604, 131072, 5, 196603, 131072, 5)
