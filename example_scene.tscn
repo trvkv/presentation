@@ -1,11 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn47xknifwppj"]
+[gd_scene load_steps=7 format=3 uid="uid://cn47xknifwppj"]
 
 [ext_resource type="Script" path="res://example_scene.gd" id="1_df3x5"]
 [ext_resource type="PackedScene" uid="uid://bbqay85du5c8i" path="res://Actors/player.tscn" id="2_sxcx0"]
-[ext_resource type="Texture2D" uid="uid://dvv47ek60u4ja" path="res://Resources/Images/light_image.png" id="4_67dey"]
+[ext_resource type="PackedScene" uid="uid://26udajn6ii85" path="res://Environment/light_source.tscn" id="4_74yn2"]
 [ext_resource type="TileSet" uid="uid://7ucfl6wc38tw" path="res://Resources/Tiles/crayons.tres" id="6_w6yan"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5w07i"]
+
 [sub_resource type="Environment" id="Environment_jqjb2"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 2.0
+glow_levels/2 = 2.0
+glow_levels/3 = 2.0
+glow_levels/4 = 3.0
+glow_levels/5 = 0.0
+glow_intensity = 1.2
+glow_strength = 1.2
 
 [node name="ExampleScene" type="Node2D"]
 script = ExtResource("1_df3x5")
@@ -22,6 +33,7 @@ offset_bottom = 2889.0
 color = Color(0.207843, 0.313726, 0.439216, 1)
 
 [node name="Map" type="TileMap" parent="."]
+material = SubResource("CanvasItemMaterial_5w07i")
 tile_set = ExtResource("6_w6yan")
 format = 2
 layer_0/name = "Foreground"
@@ -111,10 +123,16 @@ layout_mode = 2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jqjb2")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-z_index = 1
-position = Vector2(-413, -196)
-color = Color(1, 1, 0.129412, 1)
-shadow_enabled = true
-shadow_filter = 2
-texture = ExtResource("4_67dey")
+[node name="Light" type="Node2D" parent="."]
+
+[node name="LightSource1" parent="Light" instance=ExtResource("4_74yn2")]
+modulate = Color(0.709804, 0.396078, 0.462745, 1)
+position = Vector2(-411, -136)
+
+[node name="LightSource2" parent="Light" instance=ExtResource("4_74yn2")]
+modulate = Color(0.709804, 0.396078, 0.462745, 1)
+position = Vector2(64, -136)
+
+[node name="LightSource3" parent="Light" instance=ExtResource("4_74yn2")]
+modulate = Color(0.709804, 0.396078, 0.462745, 1)
+position = Vector2(531, -136)
