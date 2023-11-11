@@ -7,7 +7,6 @@
 
 [sub_resource type="Environment" id="Environment_jqjb2"]
 background_mode = 3
-glow_enabled = true
 glow_levels/1 = 2.0
 glow_levels/2 = 2.0
 glow_levels/3 = 2.0
@@ -36,7 +35,7 @@ format = 2
 layer_0/name = "Foreground"
 layer_0/modulate = Color(0.917647, 0.67451, 0.545098, 1)
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(196607, 131072, 5, 131072, 131072, 5, 131073, 131072, 5, 131074, 131072, 5, 131075, 131072, 5, 131076, 131072, 5, 131077, 131072, 5, 131078, 131072, 5, 196606, 131072, 5, 196605, 131072, 5, 196604, 131072, 5, 196603, 131072, 5, 65531, 393216, 7, 131067, 393216, 5, -5, 327680, 5, -65541, 327680, 5, -131077, 327680, 5, -196613, 327680, 5, -196612, 327680, 5, -196611, 327680, 5, -196610, 327680, 5, -196609, 327680, 5, -262144, 327680, 5, -262143, 327680, 5, -262142, 327680, 5, -262141, 327680, 5, -262140, 327680, 5, -262139, 327680, 5, -262138, 327680, 5, -196602, 327680, 5, -131066, 327680, 5, -65530, 327680, 5, 6, 327680, 5, 65542, 327680, 5, 262138, 131072, 5, 262137, 131072, 5, 262136, 131072, 5, 262135, 131072, 5, 262134, 131072, 5, 262133, 131072, 5, 262132, 131072, 5, 262131, 131072, 5, 262130, 131072, 5, 262129, 131072, 5, 262128, 131072, 5, 262127, 131072, 5, 262126, 131072, 5, 262125, 131072, 5, 262124, 131072, 5, 262139, 524288, 5, 262140, 524288, 5, 262141, 524288, 5, 262142, 524288, 5, 262143, 524288, 5, 196608, 524288, 5, 196609, 524288, 5, 196610, 524288, 5, 196611, 524288, 5, 196612, 524288, 5, 196613, 524288, 5, 196614, 524288, 5, 262150, 524288, 5, 262149, 524288, 5, 262148, 524288, 5, 262147, 524288, 5, 262146, 524288, 5, 262145, 524288, 5, 262144, 524288, 5, 327679, 524288, 5, 327678, 524288, 5, 327677, 524288, 5, 327676, 524288, 5, 327675, 524288, 5, 327674, 524288, 5, 327673, 524288, 5, 327672, 524288, 5, 327671, 524288, 5, 327670, 524288, 5, 327669, 524288, 5, 327668, 524288, 5, 327667, 524288, 5, 327666, 524288, 5, 327665, 524288, 5, 327664, 524288, 5, 327663, 524288, 5, 327662, 524288, 5, 327661, 524288, 5, 327660, 524288, 5, 196615, 524288, 5, 196616, 524288, 5, 196617, 524288, 5, 196618, 524288, 5, 196619, 524288, 5, 196620, 524288, 5, 262156, 524288, 5, 262155, 524288, 5, 262154, 524288, 5, 262153, 524288, 5, 262152, 524288, 5, 262151, 524288, 5, 131079, 131072, 5, 131080, 131072, 5, 131081, 131072, 5, 131082, 131072, 5, 131083, 131072, 5, 131084, 131072, 5, 196621, 131072, 5, 196622, 131072, 5, 196623, 131072, 5, 196624, 131072, 5, 196625, 131072, 5, 196626, 131072, 5, 196627, 131072, 5, 196628, 131072, 5, 196629, 131072, 5, 196630, 131072, 5, 196631, 131072, 5, 262157, 524288, 5, 262158, 524288, 5, 262159, 524288, 5, 262160, 524288, 5, 262161, 524288, 5, 262162, 524288, 5, 262163, 524288, 5, 262164, 524288, 5, 262165, 524288, 5, 262166, 524288, 5, 262167, 524288, 5, 196632, 131072, 1, 196633, 131072, 1, 196634, 131072, 1, 196635, 131072, 1, 196636, 131072, 1, 196637, 131072, 1, 262168, 393216, 8, 262169, 393216, 8, 262170, 393216, 8, 262171, 393216, 8, 262172, 393216, 8, 262173, 393216, 8, 65530, 327681, 4)
+layer_0/tile_data = PackedInt32Array(196607, 131072, 5, 131072, 131072, 5, 131073, 131072, 5, 131074, 131072, 5, 131075, 131072, 5, 131076, 131072, 5, 131077, 131072, 5, 131078, 131072, 5, 196606, 131072, 5, 196605, 131072, 5, 196604, 131072, 5, 196603, 131072, 5, 65531, 393216, 7, 131067, 393216, 5, -5, 327680, 5, -65541, 327680, 5, -131077, 327680, 5, -196613, 327680, 5, -196612, 327680, 5, -196611, 327680, 5, -196610, 327680, 5, -196609, 327680, 5, -262144, 327680, 5, -262143, 327680, 5, -262142, 327680, 5, -262141, 327680, 5, -262140, 327680, 5, -262139, 327680, 5, -262138, 327680, 5, -196602, 327680, 5, -131066, 327680, 5, -65530, 327680, 5, 262138, 131072, 5, 262137, 131072, 5, 262136, 131072, 5, 262135, 131072, 5, 262134, 131072, 5, 262133, 131072, 5, 262132, 131072, 5, 262131, 131072, 5, 262130, 131072, 5, 262129, 131072, 5, 262128, 131072, 5, 262127, 131072, 5, 262126, 131072, 5, 262125, 131072, 5, 262124, 131072, 5, 262139, 524288, 5, 262140, 524288, 5, 262141, 524288, 5, 262142, 524288, 5, 262143, 524288, 5, 196608, 524288, 5, 196609, 524288, 5, 196610, 524288, 5, 196611, 524288, 5, 196612, 524288, 5, 196613, 524288, 5, 196614, 524288, 5, 262150, 524288, 5, 262149, 524288, 5, 262148, 524288, 5, 262147, 524288, 5, 262146, 524288, 5, 262145, 524288, 5, 262144, 524288, 5, 327679, 524288, 5, 327678, 524288, 5, 327677, 524288, 5, 327676, 524288, 5, 327675, 524288, 5, 327674, 524288, 5, 327673, 524288, 5, 327672, 524288, 5, 327671, 524288, 5, 327670, 524288, 5, 327669, 524288, 5, 327668, 524288, 5, 327667, 524288, 5, 327666, 524288, 5, 327665, 524288, 5, 327664, 524288, 5, 327663, 524288, 5, 327662, 524288, 5, 327661, 524288, 5, 327660, 524288, 5, 196615, 524288, 5, 196616, 524288, 5, 196617, 524288, 5, 196618, 524288, 5, 196619, 524288, 5, 196620, 524288, 5, 262156, 524288, 5, 262155, 524288, 5, 262154, 524288, 5, 262153, 524288, 5, 262152, 524288, 5, 262151, 524288, 5, 131079, 131072, 5, 131080, 131072, 5, 131081, 131072, 5, 131082, 131072, 5, 131083, 131072, 5, 131084, 131072, 5, 196621, 131072, 5, 196622, 131072, 5, 196623, 131072, 5, 196624, 131072, 5, 196625, 131072, 5, 196626, 131072, 5, 196627, 131072, 5, 196628, 131072, 5, 196629, 131072, 5, 196630, 131072, 5, 196631, 131072, 5, 262157, 524288, 5, 262158, 524288, 5, 262159, 524288, 5, 262160, 524288, 5, 262161, 524288, 5, 262162, 524288, 5, 262163, 524288, 5, 262164, 524288, 5, 262165, 524288, 5, 262166, 524288, 5, 262167, 524288, 5, 196632, 131072, 1, 196633, 131072, 1, 196634, 131072, 1, 196635, 131072, 1, 196636, 131072, 1, 196637, 131072, 1, 262168, 393216, 8, 262169, 393216, 8, 262170, 393216, 8, 262171, 393216, 8, 262172, 393216, 8, 262173, 393216, 8, 65530, 327681, 4, 6, 393216, 7, 65542, 393216, 5)
 layer_1/name = "Midground"
 layer_1/enabled = true
 layer_1/modulate = Color(0.898039, 0.419608, 0.435294, 1)
@@ -66,9 +65,15 @@ alignment = 1
 layout_mode = 2
 
 [node name="label_name" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_state"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Player state:"
 horizontal_alignment = 2
+
+[node name="VSeparator" type="VSeparator" parent="GUI/PanelContainer/VBoxContainer/hb_state"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 5
 
 [node name="label_value" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_state"]
 layout_mode = 2
@@ -77,9 +82,15 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="label_name" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_velocity"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Velocity:"
 horizontal_alignment = 2
+
+[node name="VSeparator" type="VSeparator" parent="GUI/PanelContainer/VBoxContainer/hb_velocity"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 5
 
 [node name="label_value" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_velocity"]
 layout_mode = 2
@@ -88,34 +99,34 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="label_name" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_direction"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Motion direction:"
 horizontal_alignment = 2
 
-[node name="VSeparator" type="VSeparator" parent="GUI/PanelContainer/VBoxContainer/hb_direction/label_name"]
-layout_mode = 0
-offset_right = 4.0
-offset_bottom = 40.0
+[node name="VSeparator" type="VSeparator" parent="GUI/PanelContainer/VBoxContainer/hb_direction"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 theme_override_constants/separation = 5
 
 [node name="label_value" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_direction"]
 layout_mode = 2
 
-[node name="hb_last_direction" type="HBoxContainer" parent="GUI/PanelContainer/VBoxContainer"]
+[node name="hb_current_acc" type="HBoxContainer" parent="GUI/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="label_name" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_last_direction"]
+[node name="label_name" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_current_acc"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Last motion direction:"
+text = "Current acceleration:"
 horizontal_alignment = 2
 
-[node name="VSeparator" type="VSeparator" parent="GUI/PanelContainer/VBoxContainer/hb_last_direction/label_name"]
-layout_mode = 0
-offset_right = 4.0
-offset_bottom = 40.0
+[node name="VSeparator" type="VSeparator" parent="GUI/PanelContainer/VBoxContainer/hb_current_acc"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="label_value" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_last_direction"]
+[node name="label_value" type="Label" parent="GUI/PanelContainer/VBoxContainer/hb_current_acc"]
 layout_mode = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

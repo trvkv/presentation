@@ -107,8 +107,15 @@ class PlayerStateFalling extends StateMachine.State:
 
 	func physics_tick(delta):
 		var player: Player = Global.player
-		player.velocity = player.velocity * Vector2(0.995, 1.0)
 		player.velocity = GlobalPhysics.apply_gravity(player.velocity, delta)
+
+		var v: Vector2 = player.velocity
+
+		v = v + (player.motion_direction.normalized() * 30.0)
+		v.x = clampf(v.x, -player.max_motion_velocity, player.max_motion_velocity)
+
+		player.velocity = v
+
 		player.move_and_slide()
 
 	func input(event: InputEvent) -> void:

@@ -15,8 +15,7 @@ polygon = PackedVector2Array(-59, -59, 59, -59, 59, 59, -59, 59)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_udsb2"]
 polygon = PackedVector2Array(-59, -59, 59, -59, 59, 59, -59, 59)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_styce"]
-polygon = PackedVector2Array(-59, -59, 59, -59, 45.5, -21, -46.5, -22)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p7rei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d86sv"]
 resource_name = "Crayons"
@@ -50,7 +49,7 @@ texture_region_size = Vector2i(128, 128)
 5:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:7/0/physics_layer_0/angular_velocity = 0.0
 6:7/0 = 0
-6:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_styce")
+6:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_p7rei")
 6:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:7/0/physics_layer_0/angular_velocity = 0.0
 6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-59, -59, 59, -59, 59, -18, -59, -20)
