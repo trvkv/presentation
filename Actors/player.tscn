@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbqay85du5c8i"]
+[gd_scene load_steps=7 format=3 uid="uid://bbqay85du5c8i"]
 
 [ext_resource type="Script" path="res://Actors/player.gd" id="1_7cbhq"]
 [ext_resource type="Texture2D" uid="uid://ddpvmmwoyqgx6" path="res://Resources/Images/spritesheet_retina.png" id="2_l2kbh"]
 [ext_resource type="Script" path="res://Actors/player_state_machine.gd" id="3_875fk"]
+[ext_resource type="Texture2D" uid="uid://bvk8ottxrpyok" path="res://Actors/yellow_hand.tres" id="3_q3fkm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4rs41"]
 atlas = ExtResource("2_l2kbh")
@@ -14,8 +15,23 @@ size = Vector2(64, 120)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_7cbhq")
 
+[node name="AnimationTree" type="AnimationTree" parent="."]
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_4rs41")
+
+[node name="Hands" type="Node2D" parent="."]
+
+[node name="LeftHand" type="Sprite2D" parent="Hands"]
+position = Vector2(-36, 24)
+texture = ExtResource("3_q3fkm")
+
+[node name="RightHand" type="Sprite2D" parent="Hands"]
+position = Vector2(38, 25)
+texture = ExtResource("3_q3fkm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8ocdj")
