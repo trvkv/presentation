@@ -1,5 +1,7 @@
 extends Node
 
+class_name PlayerStateMachine
+
 enum STATES { INVALID = StateMachine.INVALID, IDLE, RUNNING, FALLING, JUMPING, DASHING }
 
 class PlayerStateIdle extends StateMachine.State:
