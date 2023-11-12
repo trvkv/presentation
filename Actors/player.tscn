@@ -196,7 +196,7 @@ region = Rect2(1152, 0, 128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ocdj"]
 size = Vector2(64, 120)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["players"]]
 position = Vector2(1, 1)
 script = ExtResource("1_7cbhq")
 
@@ -213,18 +213,18 @@ libraries = {
 }
 
 [node name="Body" type="Sprite2D" parent="."]
-position = Vector2(0, 4.65597)
-scale = Vector2(1, 0.94578)
+position = Vector2(0, 4.3296)
+scale = Vector2(1, 0.944148)
 texture = SubResource("AtlasTexture_4rs41")
 
 [node name="Hands" type="Node2D" parent="."]
 
 [node name="LeftHand" type="Sprite2D" parent="Hands"]
-position = Vector2(-37.8866, 22.1134)
+position = Vector2(-37.7444, 22.2556)
 texture = ExtResource("3_q3fkm")
 
 [node name="RightHand" type="Sprite2D" parent="Hands"]
-position = Vector2(38, 23.8416)
+position = Vector2(38, 23.7546)
 texture = ExtResource("3_q3fkm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

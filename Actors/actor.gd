@@ -11,6 +11,7 @@ class_name Actor
 # # # # #
 
 class CollisionData:
+	var collider: Object
 	var friction_coefficient: float
 
 # # # # #
@@ -24,9 +25,12 @@ var is_jumping: bool = false
 func get_collision_data() -> CollisionData:
 	var coefficient: float = 0.0
 
+	# TODO: HANDLE MORE THAN SINGLE COLLISION HERE
+	var collider: Object = null
+
 	var collisions: int = get_slide_collision_count()
 	for i in range(collisions):
-		var collider = get_slide_collision(i).get_collider()
+		collider = get_slide_collision(i).get_collider()
 		if is_instance_valid(collider):
 			# rigid body
 			if collider.get("physics_material_override"):
@@ -40,6 +44,7 @@ func get_collision_data() -> CollisionData:
 	coefficient /= max(collisions, 1)
 
 	var collision_data: CollisionData = CollisionData.new()
+	collision_data.collider = collider
 	collision_data.friction_coefficient = coefficient
 
 	return collision_data

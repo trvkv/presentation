@@ -3,13 +3,16 @@ extends Actor
 class_name Player
 
 const SPEED = 800.0
-const JUMP_VELOCITY = 700.0
+const JUMP_VELOCITY = 750.0
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = $PlayerStateMachine
 
 var current_animation_state: int
 var last_animation_state: int
+
+var collision_data: CollisionData = CollisionData.new()
+var area_interaction: Area2D
 
 func _ready():
 	Global.player = self
@@ -35,7 +38,23 @@ func handle_jump(event: InputEvent) -> void:
 		is_jumping = true
 
 func apply_jump() -> void:
-	velocity = GlobalPhysics.apply_jump(velocity, JUMP_VELOCITY)
+	var collider = self
+	if is_instance_valid(collision_data.collider):
+		if collision_data.collider.is_class("CollisionObject2D"):
+			collider = collision_data.collider
+	velocity = GlobalPhysics.apply_jump(collider, velocity, JUMP_VELOCITY)
+
+func apply_gravity(delta: float) -> void:
+	var collider = self
+	if is_instance_valid(collision_data.collider):
+		collider = collision_data.collider
+	if area_interaction:
+		collider = area_interaction
+	velocity = GlobalPhysics.apply_gravity(collider, velocity, delta)
+
+func apply_move() -> void:
+	move_and_slide()
+	collision_data = get_collision_data()
 
 func get_active_state_id() -> int:
 	return state_machine.active_state.state_id
