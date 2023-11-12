@@ -18,17 +18,21 @@ func _ready():
 	Global.player = self
 	motion_direction = Vector2(0.0, 0.0)
 
-	animation_tree['parameters/conditions/moving_right'] = true
-	animation_tree["parameters/conditions/moving_left"] = false
+	animation_tree['parameters/conditions/idle'] = true
+	animation_tree['parameters/Idle/blend_position'] = 1.0
+
 
 func _process(_delta) -> void:
 	# save last motion which was other than zero
-	if motion_direction.x > 0:
-		animation_tree['parameters/conditions/moving_right'] = true
-		animation_tree["parameters/conditions/moving_left"] = false
-	elif motion_direction.x < 0:
-		animation_tree['parameters/conditions/moving_right'] = false
-		animation_tree["parameters/conditions/moving_left"] = true
+
+	if motion_direction.x != 0.0:
+		animation_tree['parameters/conditions/idle'] = false
+		animation_tree['parameters/conditions/moving'] = true
+		animation_tree['parameters/Idle/blend_position'] = motion_direction.x
+		animation_tree['parameters/Run/blend_position'] = motion_direction.x
+	else:
+		animation_tree['parameters/conditions/idle'] = true
+		animation_tree['parameters/conditions/moving'] = false
 
 func handle_movement(_event: InputEvent) -> void:
 	motion_direction.x = (-Input.get_action_strength("ui_left")) + Input.get_action_strength("ui_right")
