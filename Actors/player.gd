@@ -2,7 +2,7 @@ extends Actor
 
 class_name Player
 
-const SPEED = 800.0
+const SPEED = 1000.0
 const JUMP_VELOCITY = 750.0
 
 @onready var animation_tree = $AnimationTree

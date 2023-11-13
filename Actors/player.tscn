@@ -418,19 +418,19 @@ libraries = {
 }
 
 [node name="Body" type="Sprite2D" parent="."]
-position = Vector2(0, 0.137531)
-scale = Vector2(1, 0.9989)
+position = Vector2(0, 3.47535)
+scale = Vector2(1, 0.972197)
 texture = SubResource("AtlasTexture_4rs41")
 
 [node name="Hands" type="Node2D" parent="."]
 
 [node name="LeftHand" type="Sprite2D" parent="Hands"]
-position = Vector2(-35.98, 24.02)
+position = Vector2(-35.4945, 24.5055)
 texture = ExtResource("3_q3fkm")
 
 [node name="RightHand" type="Sprite2D" parent="Hands"]
 z_index = -1
-position = Vector2(38, 24.9371)
+position = Vector2(38, 23.4113)
 texture = ExtResource("3_q3fkm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
