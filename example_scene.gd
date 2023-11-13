@@ -13,5 +13,6 @@ func _physics_process(delta) -> void:
 			"vx": "%0.2f" % (player.get_last_motion().x / delta),
 			"vy": "%0.2f" % player.velocity.y
 		}))
+
 		label_direction_value.set_text(str(player.motion_direction))
 		label_acceleration_value.set_text(str(player.current_acceleration))
