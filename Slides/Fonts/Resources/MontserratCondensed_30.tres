@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ck4ac4t5ncwqh"]
+
+[ext_resource type="FontFile" uid="uid://c54gutx8blenl" path="res://Slides/Fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf" id="1_45h6u"]
+
+[resource]
+font = ExtResource("1_45h6u")
+font_size = 50

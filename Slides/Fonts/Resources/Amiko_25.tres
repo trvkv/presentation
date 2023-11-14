@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://k0w58y72fxgu"]
+
+[ext_resource type="FontFile" uid="uid://di7ihsi1ec50i" path="res://Slides/Fonts/Amiko/Amiko-Regular.ttf" id="1_g2fh8"]
+
+[resource]
+font = ExtResource("1_g2fh8")
+font_size = 20

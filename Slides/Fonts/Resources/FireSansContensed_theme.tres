@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://x0uoe2nw58oy"]
+
+[ext_resource type="FontFile" uid="uid://d352jo8f1s6l1" path="res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Bold.ttf" id="1_mq5eo"]
+[ext_resource type="FontFile" uid="uid://ba7j3llsql7m1" path="res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-BoldItalic.ttf" id="2_h0dv7"]
+[ext_resource type="FontFile" uid="uid://6qfk1hgxni7t" path="res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Italic.ttf" id="3_nevtg"]
+[ext_resource type="FontFile" uid="uid://d02267v3g0swr" path="res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf" id="4_tt846"]
+
+[resource]
+default_font_size = 60
+RichTextLabel/fonts/bold_font = ExtResource("1_mq5eo")
+RichTextLabel/fonts/bold_italics_font = ExtResource("2_h0dv7")
+RichTextLabel/fonts/italics_font = ExtResource("3_nevtg")
+RichTextLabel/fonts/normal_font = ExtResource("4_tt846")

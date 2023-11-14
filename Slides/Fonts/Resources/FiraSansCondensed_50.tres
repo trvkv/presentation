@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://belysrib20m5k"]
+
+[ext_resource type="FontFile" uid="uid://d02267v3g0swr" path="res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf" id="1_x8ieu"]
+
+[resource]
+font = ExtResource("1_x8ieu")
+font_size = 80
