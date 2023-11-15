@@ -27,19 +27,14 @@ theme_override_constants/margin_bottom = 10
 [node name="Content" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]O warsztatach[/font_size][/font]
-[font_size=45][indent]To nasza pierwsza gra, więc nie musimy szaleć z dokumentacją.[/indent]
- 
+text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]O warsztatach c.d.[/font_size][/font]
+[font_size=60]
+[center]! WAŻNE ![/center]
 
-[indent][indent]
-[ul]
-Przygotujmy GDD
-Na podstawie GDD, wpiszemy taski na GitHub
-Przemyślimy i wybierzemy styl graficzny
-Zajmiemy się ewentualną historią
-Rozpoczniemy pracę nad grą
-Porozmawiamy o opcjach marketingu gry
-Spróbujemy wydać Waszą grę!
-[/ul]
-[/indent][/indent]
+[indent][indent]Jeśli wyrażasz chęć do uczestnictwa w warsztatach napisz do mnie![/indent][/indent]
+
+[center]szymontmcz@gmail.com[/center]
+
+[indent][indent]W zamian, dostaniesz link do serwera Discord, którego będziemy używać do dalszej komunikacji.[/indent][/indent]
+
 [/font_size]"
