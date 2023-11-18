@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dwrl0m2fad8h4"]
+[gd_scene format=3 uid="uid://bb2v4isxig0jv"]
 
 [node name="slide_4" type="Node2D"]
 
@@ -27,16 +27,14 @@ theme_override_constants/margin_bottom = 10
 [node name="Content" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]Pre-produkcja c.d.[/font_size][/font][font_size=55][indent][indent]
-Kiedy już gra jest wstępnie zaprojektowana:
+text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]Produkcja[/font_size][/font][font_size=55][indent][indent]
+Kiedy uda się przetrwać fazę produkcji, bądź wiemy, że zbliża się ona do końca:
+
 [ul]
-testujemy mechaniki,
-testujemy systemy,
-tworzymy prototypy,
-piszemy scenariusz głównego wątku historii,
-poprawiamy GDD (jeśli potrzeba),
-wybieramy silnik gry (ew. tworzymy własny),
-wybieramy narzędzia do pracy,
-projektujemy lub tworzymy pipeline'y,
-projektujemy interfejs użytkownika
-[/ul][/indent][/indent][/font_size]"
+rozpoczynamy marketing i promocję,
+przygotowujemy grę do sprzedaży (np. integracja sklepu Steam),
+przygotowujemy wersję alpha bądź beta.
+[/ul]
+
+Produkcja kończy się wersją gry nazywaną \"gold\".
+[/indent][/indent][/font_size]"

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dwrl0m2fad8h4"]
+[gd_scene format=3 uid="uid://crtku8bcrxghs"]
 
 [node name="slide_4" type="Node2D"]
 
@@ -28,15 +28,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 bbcode_enabled = true
 text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]Pre-produkcja c.d.[/font_size][/font][font_size=55][indent][indent]
-Kiedy już gra jest wstępnie zaprojektowana:
-[ul]
-testujemy mechaniki,
-testujemy systemy,
-tworzymy prototypy,
-piszemy scenariusz głównego wątku historii,
-poprawiamy GDD (jeśli potrzeba),
-wybieramy silnik gry (ew. tworzymy własny),
-wybieramy narzędzia do pracy,
-projektujemy lub tworzymy pipeline'y,
-projektujemy interfejs użytkownika
-[/ul][/indent][/indent][/font_size]"
+[center]Zapamiętajmy:[/center]
+
+Czym faza pre-produkcji jest lepiej przemyślana, tym łatwiejsza staje się sama produkcja. Błędy w pre-produkcji, zazwyczaj ujawniają się na etapie produkcji.
+[/indent][/indent][/font_size]"
