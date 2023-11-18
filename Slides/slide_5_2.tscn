@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bg7hnry6r0nsa"]
+[gd_scene format=3 uid="uid://cx3w1sregev1b"]
 
-[node name="slide_6" type="Node2D"]
+[node name="slide_5" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -27,14 +27,18 @@ theme_override_constants/margin_bottom = 10
 [node name="Content" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]Potencjalne plany na (odległą) przyszłość[/font_size][/font]
-[font_size=75][indent][indent]
+text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]O warsztatach c.d.[/font_size][/font]
+[font_size=60][indent][indent]
+Najważniejsza jest kolaboracja!
+
+Zasady:
 [ul]
-zaczynamy od początku!
-tworzymy (przemyślane) portfolio,
-bierzemy udział w game jamach,
-pokazujemy gry innym,
-wspólnie tworzymy społeczność twórców gier.
+Otwarta dokumentacja (np. GDD),
+Nie boimy się dzielić pomysłami na gry!
+Otwarte repozytoria na GitHub,
+Każdy pomaga każdemu,
+Pomagamy w testowaniu gier innych uczestników,
+Dbamy o samopoczucie swoje oraz innych!
 [/ul]
 [/indent][/indent]
 [/font_size]"
