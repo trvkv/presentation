@@ -26,3 +26,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=4
 window/size/resizable=false
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.513726, 0.662745, 1, 1)

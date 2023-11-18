@@ -140,6 +140,8 @@ layout_mode = 2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jqjb2")
 
+[node name="Water" parent="." instance=ExtResource("5_sp35w")]
+
 [node name="Light" type="Node2D" parent="."]
 
 [node name="LightSource1" parent="Light" instance=ExtResource("4_74yn2")]
@@ -158,7 +160,5 @@ position = Vector2(175, 24)
 modulate = Color(0.709804, 0.396078, 0.462745, 1)
 position = Vector2(649, 24)
 
-[node name="Water" parent="." instance=ExtResource("5_sp35w")]
-
-[node name="LightSource" parent="." instance=ExtResource("4_74yn2")]
+[node name="LightSource5" parent="Light" instance=ExtResource("4_74yn2")]
 position = Vector2(4563, 217)

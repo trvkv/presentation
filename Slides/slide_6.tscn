@@ -28,9 +28,13 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 bbcode_enabled = true
 text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]Potencjalne plany na (odległą) przyszłość[/font_size][/font]
-[font_size=45]
+[font_size=45][indent][indent]
+
 [ul]
-Zaczynamy od początku samego początku!
-Bierzemy udział w GameJamie
+Zaczynamy od początku!
+Tworzymy (przemyślane) portfolio
+Bierzemy udział w game jamach
+Pokazujemy gry innym
 [/ul]
+[/indent][/indent]
 [/font_size]"

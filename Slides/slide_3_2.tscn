@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://k2uq1wghp6l6"]
+
+[node name="slide_3" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -510.0
+offset_top = -223.0
+offset_right = 510.0
+offset_bottom = 223.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Content" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]Wstęp[/font_size]
+[font_size=70]O grach, ogółem[/font_size]
+[font_size=55][indent]
+Podział gier ze względu na budżet produkcji
+
+AAA [ang. 'triple-A'][indent][ul]
+największe, najtrudniejsze, wieloletnie projekty
+porównywalne do filmowych 'blockbusterów'
+setki zaangażowanych ludzi
+znani aktorzy
+kosztowny marketing
+największe przychody
+największe ryzyko
+[/ul]
+[/indent][/indent]
+[/font_size]
+[/font]"

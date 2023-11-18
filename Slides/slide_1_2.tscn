@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtay7lv1oc8ef"]
+
+[ext_resource type="Theme" uid="uid://x0uoe2nw58oy" path="res://Slides/Fonts/Resources/FireSansContensed_theme.tres" id="1_s11lq"]
+
+[node name="slide_1" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 2
+
+[node name="Content" type="RichTextLabel" parent="Control/CenterContainer"]
+custom_minimum_size = Vector2(900, 100)
+layout_mode = 2
+theme = ExtResource("1_s11lq")
+theme_override_constants/line_separation = 30
+bbcode_enabled = true
+text = "[center][font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=70]“Making a game is like constructing a building during an earthquake or trying to run a train as someone else is laying down track as you go...”[/font_size][/font][/center]
+[right]- Jason Schreier[/right]"
+fit_content = true
