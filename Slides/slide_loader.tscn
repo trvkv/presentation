@@ -45,6 +45,3 @@ slides = Array[PackedScene]([ExtResource("2_wpw4v"), ExtResource("3_t5bnu"), Ext
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="SlideContainer" type="Node2D" parent="."]
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
