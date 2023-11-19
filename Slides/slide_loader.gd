@@ -18,6 +18,7 @@ extends Node2D
 @export var slides: Array[PackedScene]
 
 @onready var slide_container: Node2D = $SlideContainer
+@onready var slide_count: Label = $Gui/MarginContainer/SlideCount
 
 var current_slide_index: int = 0
 var locked: bool = false
@@ -27,9 +28,10 @@ func _ready():
 	set_slide(slides[current_slide_index])
 
 func set_slide(scene: PackedScene, direction: float = 0.0):
-	# create new slide
-	var instance = scene.instantiate()
-	print("Setting new slide: ", instance.name)
+	print("Setting new slide: ", scene.resource_path)
+
+	# set slide count
+	slide_count.set_text(str(current_slide_index + 1) + " / " + str(slides.size()))
 
 	# delete old slide(s)
 
@@ -45,6 +47,7 @@ func set_slide(scene: PackedScene, direction: float = 0.0):
 		tween.tween_callback(child.queue_free).set_delay(end_delay)
 
 	# add new slide
+	var instance = scene.instantiate()
 	slide_container.add_child(instance)
 
 	instance.position = direction * start_position
@@ -90,7 +93,7 @@ func _unhandled_input(event):
 
 		current_slide_index -= 1
 
-		if current_slide_index <= 0:
+		if current_slide_index < 0:
 			print("Going to the end")
 			current_slide_index = slides.size() - 1
 
