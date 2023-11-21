@@ -27,19 +27,12 @@ theme_override_constants/margin_bottom = 10
 [node name="Content" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]Etapy produkcji gier[/font_size][/font][font_size=45][indent][indent][indent]
+text = "[font=\"res://Slides/Fonts/Fira_Sans_Condensed/FiraSansCondensed-Regular.ttf\"][font_size=100]Etapy produkcji gier[/font_size][/font][font_size=43][indent][indent][indent]
 [ul]
 Pre-produkcja
-[indent]Game Design Document (GDD)[/indent]
-[indent]Prototypowanie[/indent]
-[indent]Definicja / budowanie \"pipeline'ów\"[/indent]
+[indent]Etap planowania, projektowania i prototypowania[/indent]
 Produkcja
-[indent]First playable[/indent]
-[indent]Pre / alpha[/indent]
-[indent]Pre / beta[/indent]
-[indent]Gold (release)[/indent]
+[indent]Właściwa produkcja gry, playtesty i marketing[/indent]
 Post-produkcja
-[indent]Wsparcie użytkownika (support)[/indent]
-[indent]Utrzymanie systemów (maintenance)[/indent]
-[indent]Poprawki (bugfixes)[/indent]
+[indent]Etap utrzymania i wsparcia[/indent]
 [/ul][/indent][/indent][/indent][/font_size]"
