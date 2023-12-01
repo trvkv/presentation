@@ -14,6 +14,9 @@ extends StaticBody2D
 		if is_instance_valid(physics_material_override):
 			physics_material_override.friction = value
 
+
+# Collision shape for our block
+# TODO: Add more collision shapes
 @onready var collision: Shape2D = $CollisionShape2D.shape
 
 func get_terrain_type() -> Types.TerrainTypes:
