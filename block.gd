@@ -15,7 +15,7 @@ extends StaticBody2D
 			physics_material_override.friction = value
 
 
-# Collision shape for our block
+# SZYMON 2: Collision shape for our block
 # TODO: Add more collision shapes
 @onready var collision: Shape2D = $CollisionShape2D.shape
 
