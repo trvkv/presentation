@@ -15,6 +15,7 @@ extends StaticBody2D
 			physics_material_override.friction = value
 
 # This is test change 1...
+# This is test change 2
 
 # SZYMON 1 and 2: Collision shape for our block
 # TODO: Add more collision shapes
