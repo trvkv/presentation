@@ -16,6 +16,7 @@ extends StaticBody2D
 
 # This is test change 1...
 # This is test change 2
+# This is test change 3
 
 # SZYMON 1 and 2: Collision shape for our block
 # TODO: Add more collision shapes
